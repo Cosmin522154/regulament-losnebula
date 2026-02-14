@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acasa - 🩷 Los Nebula 🩷</title>
+</head>
+<style>
+    /* Resetare de bază */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-image: url(image/poza_nebula.png); /* Fundal închis tip spațiu */
+    color: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* --- Navigation Bar --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); /* Efect de sticlă înghețată */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 105, 180, 0.3);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ff69b4; /* Roz aprins */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff69b4;
+}
+
+/* Butonul din Header */
+.btn-header {
+    background: linear-gradient(45deg, #ff69b4, #9b59b6);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.4s;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.btn-header:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Imagine de fundal tip Nebuloasă/Spațiu */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1464802686167-b939a67e06a1?q=80&w=1470&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    background: -webkit-linear-gradient(#fff, #ff69b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+/* --- Footer --- */
+footer {
+    background: #07090d;
+    color: #777;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+</style>
+<body>
+
+    <header>
+        <div class="logo">🩷Los Nebula🩷</div>
+        <nav>
+            <ul>
+                <li><a href="main.html">Acasa</a></li>
+                <li><a href="membri.html">Membri</a></li>
+                <li><a href="index.html">Regulament</a></li>
+            </ul>
+        </nav>
+        <a href="https://discord.gg/ss9QVNDP" target="_blank" class="btn-header">Alătură-te</a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Familia Los Nebula 🩷</h1>
+            <p>Bine ai venit în universul nostru!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Los Nebula. Toate drepturile rezervate.</p>
+    </footer>
+
+</body>
+</html>
