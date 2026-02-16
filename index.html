@@ -1,177 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🩷Regulament Los Nebula🩷</title>
+    <title>🩷 Regulament Los Nebula 🩷</title>
+    <style>
+        /* Import Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- Navigation Bar --- */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(255, 20, 147, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 105, 180, 0.3);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .site-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #ff1493;
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ff69b4;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff1493;
+        }
+
+        .header-button {
+            background: linear-gradient(45deg, #ff69b4, #9b59b6);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.4s;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        /* --- Hamburger Menu Style --- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: #ff69b4;
+            border-radius: 10px;
+            transition: 0.4s;
+        }
+
+        /* Animație X pentru Hamburger */
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -7px);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(13, 13, 13, 0.98);
+                padding: 30px 0;
+                border-bottom: 2px solid #ff1493;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+
+            .discord-nav {
+                display: none; /* Ascundem butonul mare pe mobil */
+            }
+        }
+
+        /* --- Container Regulament --- */
+        .container {
+            max-width: 900px;
+            width: 90%;
+            background: #1a1a1a;
+            margin: 40px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-left: 5px solid #ff1493;
+        }
+
+        h1 {
+            color: #ff1493;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(255, 20, 147, 0.5);
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #ff69b4;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        h4 {
+            text-align: center;
+            color: #888;
+            font-weight: 300;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        ul.rules-list {
+            padding-left: 20px;
+            margin-top: 15px;
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        strong {
+            color: #ff1493;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 40px 0;
+            background: #080808;
+            color: #555;
+            border-top: 1px solid #222;
+        }
+
+        .highlight {
+            color: #ff1493;
+            font-weight: bold;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0d0d0d; }
+        ::-webkit-scrollbar-thumb { background: #ff1493; border-radius: 10px; }
+    </style>
 </head>
+<body>
 
-<header class="navbar">
-  <div class="logo"> Los Nebula🩷</div>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="main.html">Acasă</a></li>
-      <li><a href="membri.html">Membri</a></li>
-      <li><a href="index.html">Regulamente</a></li>
-    </ul>
-  </nav>
-  <a href="" class="header-button">Contactează-ne</a>
+<header>
+    <a href="main.html" class="logo-container">
+        <img src="image/logo_losnebula.jpg" alt="Logo" class="site-logo">
+        <span class="logo-text">Los Nebula</span>
+    </a>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="main.html">Acasa</a></li>
+                <li><a href="membri.html">Membri</a></li>
+                <li><a href="index.html">Regulament</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+            </ul>
+        </nav>
+        
+    
+        <a href="https://discord.com/channels/957047387879260242/1455622135916531722/1455925943762948282" class="header-button" target="_blank">Aplica in familie</a>
+
 </header>
-<style>
-  /* Import Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
-
-/* Resetare și Stil General Body */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #0d0d0d;
-    color: #e0e0e0;
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* --- Navigation Bar --- */
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    background-color: #111;
-    box-shadow: 0 2px 15px rgba(255, 20, 147, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: #ff1493;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #ff1493;
-}
-
-/* Butonul din Header */
-.header-button {
-    background: linear-gradient(45deg, #ff1493, #ff69b4);
-    color: white;
-    padding: 10px 25px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(255, 20, 147, 0.3);
-}
-
-.header-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
-    filter: brightness(1.1);
-}
-
-/* --- Container Regulament --- */
-.container {
-    max-width: 900px;
-    width: 90%;
-    background: #1a1a1a;
-    margin: 40px 0;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border-left: 5px solid #ff1493;
-}
-
-h1 {
-    color: #ff1493;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    text-shadow: 2px 2px 10px rgba(255, 20, 147, 0.5);
-    margin-bottom: 10px;
-}
-
-h2 {
-    color: #ff69b4;
-    margin-top: 30px;
-    font-size: 1.5rem;
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
-}
-
-h4 {
-    text-align: center;
-    color: #888;
-    font-weight: 300;
-    margin-bottom: 40px;
-    font-style: italic;
-}
-
-ul {
-    padding-left: 20px;
-    margin-top: 15px;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-strong {
-    color: #ff1493;
-}
-
-/* --- Footer --- */
-footer {
-    width: 100%;
-    text-align: center;
-    padding: 40px 0;
-    background: #080808;
-    color: #555;
-    border-top: 1px solid #222;
-}
-
-.highlight {
-    color: #ff1493;
-    font-weight: bold;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #0d0d0d;
-}
-::-webkit-scrollbar-thumb {
-    background: #ff1493;
-    border-radius: 10px;
-}
-</style>
 
 <div class="container">
     <h1>🩷 REGULAMENT LOS NEBULA 🩷</h1>
@@ -253,5 +330,26 @@ footer {
     <p>&copy; 2026 Los Nebula - Toate drepturile rezervate.</p>
     <p>Creat de <span class="highlight">Mexicanul</span> & Reactualizat de <span class="highlight">Cosmin</span></p>
 </footer>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        // Toggle clasa pentru meniu
+        navMenu.classList.toggle('active');
+        // Toggle clasa pentru animația liniuțelor
+        hamburger.classList.toggle('open');
+    });
+
+    // Închide meniul dacă se dă click pe un link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('open');
+        });
+    });
+</script>
+
 </body>
 </html>

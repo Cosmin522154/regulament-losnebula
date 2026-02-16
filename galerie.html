@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acasa - 🩷 Los Nebula 🩷</title>
+    <title>Galerie - 🩷 Los Nebula 🩷</title>
     <style>
-        /* Resetare de bază */
+        /* Resetare și Font */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
-        body {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image/poza_nebula.png');
+        /* Fundal unitar */
+        .nebula-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                        url('image/poza_nebula.png');
             background-size: cover;
+            background-position: center;
             background-attachment: fixed;
-            background-color: #0d0d0d;
-            color: #f8f9fa;
-            line-height: 1.6;
+            min-height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
         }
 
         /* --- Navigation Bar --- */
@@ -73,10 +77,10 @@
         }
 
         nav ul li a:hover {
-            color: #ff69b4;
+            color: #ff1493;
         }
 
-        .discord-nav {
+        .header-button {
             background: linear-gradient(45deg, #ff69b4, #9b59b6);
             color: white;
             padding: 10px 25px;
@@ -104,45 +108,79 @@
             transition: 0.4s ease;
         }
 
-        /* Animație X pentru Hamburger */
         .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
         .hamburger.open span:nth-child(2) { opacity: 0; }
         .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
 
-        /* --- Hero Section --- */
-        .hero {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* Stil Galerie */
+        .gallery-container {
+            padding: 60px 8%;
             text-align: center;
-            padding: 0 20px;
+            flex-grow: 1;
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        h1 {
+            font-size: 3.5rem;
+            color: #ff1493;
+            text-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
             margin-bottom: 10px;
-            background: -webkit-linear-gradient(#fff, #ff69b4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            color: #ddd;
-            margin-bottom: 30px;
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
         }
 
-        /* --- Footer --- */
-        footer {
-            background: #07090d;
-            color: #777;
-            text-align: center;
-            padding: 30px 0;
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 20, 147, 0.2);
+            height: 250px;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            border-color: #ff1493;
+            box-shadow: 0 0 25px rgba(255, 20, 147, 0.4);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .img-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover .img-caption { opacity: 1; }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            background: rgba(0,0,0,0.3);
         }
 
         /* --- Responsive Design --- */
@@ -155,7 +193,7 @@
                 top: 80px;
                 left: 0;
                 width: 100%;
-                background: rgba(13, 13, 13, 0.95);
+                background: rgba(13, 13, 13, 0.98);
                 backdrop-filter: blur(15px);
                 padding: 40px 0;
                 border-bottom: 2px solid #ff1493;
@@ -169,13 +207,12 @@
                 gap: 25px;
             }
 
-            .discord-nav { display: none; } /* Ascuns pe mobil în bara de sus */
-
-            .hero h1 { font-size: 2.5rem; }
+            header .header-button { display: none; }
+            h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
-<body>
+<body class="nebula-bg">
 
     <header>
         <a href="main.html" class="logo-container">
@@ -198,16 +235,30 @@
             </ul>
         </nav>
         
-    <a href="https://discord.com/channels/957047387879260242/1455622135916531722/1455925943762948282" class="discord-nav" target="_blank">Aplica in familie</a>
-        
+        <a href="https://discord.com/channels/957047387879260242/1455622135916531722/1455925943762948282" class="header-button" target="_blank">Aplica in familie</a>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Familia Los Nebula 🩷</h1>
-            <p>Bine ai venit în universul nostru!</p>
-        </section>
-    </main>
+    <div class="gallery-container">
+        <h1>📸 Galeria Familiei 📸</h1>
+        <p style="color: #ff69b4;">Amintiri din Familia Los Nebula</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="image/poza_membri.jpg" alt="Mafia Nebula">
+                <div class="img-caption">Moment de relaxare la turfuri</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="image/poza_nebula.png" alt="Lider">
+                <div class="img-caption">Lidera Suprema</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="image/poze_membri2.png" alt="Turf">
+                <div class="img-caption">Castigarea turfului</div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Los Nebula. Toate drepturile rezervate.</p>
@@ -222,7 +273,6 @@
             hamburger.classList.toggle('open');
         });
 
-        // Închide meniul când dai click pe un link
         document.querySelectorAll('#nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
